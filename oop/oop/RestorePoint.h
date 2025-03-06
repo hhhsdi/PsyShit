@@ -14,6 +14,9 @@ public:
         timestamp = std::time(nullptr);
     }
     void ShowInfo() const {
-        std::cout << "Точка восстановления создана: " << []() { char buffer[26]; ctime_s(buffer, sizeof(buffer), &timestamp); return std::string(buffer); }();
+        char buffer[26];
+        ctime_s(buffer, sizeof(buffer), &timestamp);
+        std::cout << "РўРѕС‡РєР° РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ СЃРѕР·РґР°РЅР°: " << buffer;
     }
+
 };
