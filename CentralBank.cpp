@@ -8,7 +8,7 @@ void CentralBank::processGlobalTransactions() {
     for (Bank* bank : banks) {
         // 1. Начисляем проценты на все счета
         for (Account* account : bank->getAccounts()) {
-            account->applyInterest(); // Полиморфный вызов (для дебетовых, депозитных и т.д.)
+            account->applyInterest(); 
         }
 
         // 2. Списание комиссий 
@@ -19,7 +19,6 @@ void CentralBank::processGlobalTransactions() {
     std::cout << "[Central Bank] Processed global transactions (interest/commissions).\n";
 }
 
-// Реализация уведомления всех банков (например, о изменении ставок)
 void CentralBank::notifyBanks(const std::string& message) {
     for (Bank* bank : banks) {
         bank->update(message); // Вызываем метод update у каждого банка
@@ -27,7 +26,7 @@ void CentralBank::notifyBanks(const std::string& message) {
     std::cout << "[Central Bank] Notified all banks: " << message << "\n";
 }
 
-// Регистрация банка в системе
+
 void CentralBank::registerBank(Bank* bank) {
     banks.push_back(bank);
     std::cout << "[Central Bank] Bank registered: " << bank->getName() << "\n";
